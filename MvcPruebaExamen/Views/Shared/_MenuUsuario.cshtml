@@ -1,0 +1,36 @@
+﻿@model List<Departamento>
+
+@{
+    string email = Context.Session.GetString("USUARIO");
+    string pass = Context.Session.GetString("PASS");
+}
+
+@if (email == null && pass == null)
+{
+    <li class="nav-items">
+        <a asp-controller="Usuarios"
+            asp-action="Login" class="nav-link text-dark">
+            Log In
+        </a>
+    </li>
+    <li class="nav-items">
+        <a asp-controller="Usuarios"
+            asp-action="Register" class="nav-link text-dark">
+            Register
+        </a>
+    </li>
+}
+else
+{
+    @*<li class="nav-item">
+        @await Component.InvokeAsync("MenuDepartamentos")
+    </li>*@
+    
+
+    <li class="nav-item">
+        <a asp-controller="Usuarios" asp-action="CerrarSesion"
+       class="nav-link text-dark">
+            Cerrar Sesion
+        </a>
+    </li>
+}
